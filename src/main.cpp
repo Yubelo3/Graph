@@ -23,8 +23,8 @@ int main()
     std::ios::sync_with_stdio(false);
 
     //创建好输出环境
-    system("mkdir ../Test/myoutput_bf");
-    system("mkdir ../Test/myoutput_greedy");
+    system("mkdir -p ../Test/myoutput_bf");
+    system("mkdir -p ../Test/myoutput_greedy");
 
     for(int i=1;i<=100;i++)
     {
@@ -58,6 +58,9 @@ int main()
         file_greedy<<Greedy(G,d);
         file_greedy.close();
     }
+
+    std::cout<<"BF: "<<BF_Time/CLOCKS_PER_SEC<<"s\n";
+    std::cout<<"Greedy: "<<Greedy_Time/CLOCKS_PER_SEC<<"s\n";
 
     return 0;
 }

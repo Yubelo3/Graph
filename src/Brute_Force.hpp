@@ -2,8 +2,10 @@
 #include <queue>
 #include <assert.h>
 #include <set>
+#include <ctime>
 
-#define debugout(x) std::cout << #x << ": " << x << '\n'
+//计时
+double BF_Time=0.0;
 
 //最终答案
 static int BF_Min_Acc = -1;
@@ -81,7 +83,9 @@ static void place_acc(const Graph &G, int curVertex, int placedAcc)
 //===========================主算法===============================
 int Brute_Force(const Graph &G, int D)
 {
-    //初始化从斯特
+    time_t start=clock();
+
+    //初始化
     numAcc = 0;
     d = D;
     BF_Min_Acc = -1;
@@ -96,5 +100,6 @@ int Brute_Force(const Graph &G, int D)
     }
 
     acc.clear();
+    BF_Time+=clock()-start;
     return BF_Min_Acc;
 }

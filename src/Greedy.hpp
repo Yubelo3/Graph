@@ -1,9 +1,15 @@
 #include "Graph.h"
+#include <ctime>
 #include <queue>
+
+//计时
+double Greedy_Time=0.0;
 
 //===================主算法========================
 int Greedy(const Graph &G, int d)
 {
+    time_t start=clock();
+
     //最少放大器个数
     int Greedy_Min_Acc=0;
 
@@ -56,5 +62,6 @@ int Greedy(const Graph &G, int d)
 
     delete[] inDegree;
     delete[] pressure;
+    Greedy_Time+=clock()-start;
     return Greedy_Min_Acc;
 }
